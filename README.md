@@ -57,24 +57,33 @@ precio de todas las pizzas vendidas)
 
 Para la realización del ejercicio se requiere de las siguientes clases:
 - Ingrediente:
+ 
 o Propiedades: nombre (String), precio(double)
+ 
 o Métodos: Constructor/es, Getter / Setter
 
+ 
 - Pizza:
 o Propiedades: nombre (String), precio(double), ArrayList<Ingrediente>;,
 id (int), estado(boolean)
 
+ 
 o Métodos: Constructor/es, agregarIngrediente(Ingrediente), verDatos(),
 Getter / Setter
 
+ 
 - Pizzeria:
+ 
 o Propiedades: ArrayList<Pizza>;, caja (double)
+ 
 o Métodos: Constructor/es, agregarPedido(Pizza), verEstadoPedido(int),
 servirPedido(int), mostrarPedidosPendientes()
 
+ 
 - Entrada
 
-- Sin menú:
+ 
+-Funciones a hacer sin menú:
  
 o Crear una pizza margarita con 3 ingredientes (los que quieras)
  
