@@ -20,13 +20,13 @@ Es una manera sencilla y óptima de almacenar datos que posteriormente pueden se
 
 La creación de éste es la siguiente:
 
-'''
+```
 ArrayList nombre_ArrayList = new ArrayList();
-'''
+```
 
 Pero, podemos especificar el tipo de dato que queremos que almacene dentro de él para así evitar errores al futuro. Para ello, introducimos el tipo de variable que queramos dentro de los < >. Por ejemplo:
 
-'''
+```
 ArrayList<String> nombre_ListaString = new ArrayList();
 
  
@@ -34,7 +34,7 @@ ArrayList<Integer> nombre_ListaInteger = new ArrayList();
 
  
 ArrayList<Double> nombre_ListaDouble = new ArrayList();
-'''
+```
  
 # Enunciado ejercicio 'Pizzería'
  
