@@ -110,26 +110,25 @@ Antes de comenzar a escribir el código, es recomendable leer un par de veces el
 
 Creamos las propiedades de tipo ‘private’ puesto que solo queremos que las pueda usar la propia clase Ingrediente, siendo inaccesibles para el resto de clases.
 
+```
 private String nombre;
 private double precio;
 
-
+```
+ 
 Otorgamos a ‘Ingrediente’ un nombre y un precio.
 
 Proseguiremos, creando constructores que harán que en la clase ‘Entrada’ se puedan formular tantos ingredientes como se desee. 
 
 Por defecto creamos uno vacío y otro en el que se pide un nombre y un precio para poder crear un ingrediente,
 
- 
+```
 public Ingrediente(){}
- 
-
 public Ingrediente(String nombre, double precio){
    this.nombre = nombre;
    this.precio = precio;
 }
-
-
+```
 
 Formulamos los setters y los getters para poder modificar o recoger la información sobre las propiedades nombre y precio.
 
