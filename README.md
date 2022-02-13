@@ -4,19 +4,19 @@
 
  # Definición, uso y creación de un ArrayList
  
-##### ¿Qué es un ArrayList?
+#### ¿Qué es un ArrayList?
 
 Es una lista que utiliza arrays (variables que almacenan datos en su interior).
 Su tamaño es modificable, es decir, cambiará o no la longitud de éste al añadir o eliminar elementos.
 Por defecto, un ArrayList siempre será de tipo Object. 
 
 
-##### ¿Para qué se usa un ArrayList? 
+#### ¿Para qué se usa un ArrayList? 
 
 Es una manera sencilla y óptima de almacenar datos que posteriormente pueden ser usados a lo largo del código. 
 
 
-##### ¿Cómo se crea un ArrayList?
+#### ¿Cómo se crea un ArrayList?
 
 La creación de éste es la siguiente:
 
