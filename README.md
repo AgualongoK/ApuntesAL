@@ -75,12 +75,19 @@ servirPedido(int), mostrarPedidosPendientes()
 - Entrada
 
 - Sin menú:
+ 
 o Crear una pizza margarita con 3 ingredientes (los que quieras)
+ 
 o Crear una pizza cuatro quesos con 6 ingredientes (los que
 quieras)
+ 
 o Crear una pizza hawaiana con 4 ingredientes (los que quieras)
+ 
 o Servir la pizza margarita
+ 
 o Ver el estado de la pizza la hawaiana
+ 
 o Ver estado de las pizzas pendientes
+ 
 o Ver caja
 
