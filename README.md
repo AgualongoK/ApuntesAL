@@ -113,7 +113,6 @@ Creamos las propiedades de tipo ‘private’ puesto que solo queremos que las p
 ```
 private String nombre;
 private double precio;
-
 ```
  
 Otorgamos a ‘Ingrediente’ un nombre y un precio.
@@ -131,7 +130,8 @@ public Ingrediente(String nombre, double precio){
 ```
 
 Formulamos los setters y los getters para poder modificar o recoger la información sobre las propiedades nombre y precio.
-
+ 
+```
 public String getNombre() {
    return nombre;
 }
@@ -147,7 +147,7 @@ public void setNombre(String nombre) {
 public void setPrecio(double precio) {
    this.precio = precio;
 }
-
+```
 
 2.- Creamos la clase ‘Pizza’ con sus propiedades nombre, precio, listaIngredientes, id y estado. Es importante NO inicializar el valor del ArrayList en las propiedades, puesto que la longitud de éste se decidirá en la entrada.
 
@@ -157,32 +157,28 @@ La listaIngredientes es el lugar donde se almacenarán todos los ingredientes qu
 El id será el número identificador del pedido.
 El estado será para ver si el pedido se ha servido o no (FALSE= no servido, TRUE=servido).
  
-
+```
 private String nombre;
- 
 private double precio;
- 
 private ArrayList<Ingrediente> listaIngredientes;
- 
 private int id;
- 
 private boolean estado;
-
+```
+ 
 Creamos los constructores, uno vacío por defecto, otro en el que sea necesario indicar el nombre de la persona a la que se le va a adjuntar el pedido y otro en el que se requiera el nombre de la persona responsable del pedido y una lista con los ingredientes que llevará la pizza.
 
+```
 public Pizza(){}
-
- 
 public Pizza(String nombre){
    this.nombre = nombre;
    listaIngredientes = new ArrayList<>();
 }
-
  
 public Pizza(String nombre, ArrayList listaIngredientes){
    this.nombre = nombre;
    this.listaIngredientes = listaIngredientes;
 }
+```
  
 Ahora viene lo complicado y es empezar a formular los métodos, pero tranquil@, voy a explicarlo de manera sencilla y comprensible.
 
@@ -192,15 +188,14 @@ Para ello, debemos recorrer la lista de ingredientes (ArrayList<Ingrediente>() l
 
 Recuerda que dentro de la listaIngredientes hay datos almacenados de tipo String e int en un array y para recorrerlo es necesario hacerlo con for each. Una vez dentro del ArrayList, el programa irá  recogiendo el precio de cada ingrediente.
 
- 
+```
 public void calcularPrecio(){
- 
    for (Ingrediente item : listaIngredientes) {
        precio = precio + item.getPrecio();
    }
  
 }
-
+```
  
 Proseguimos con el método de verDatos, mediante el cual mostrará por consola las propiedades asociadas a la Pizza.
 
@@ -210,7 +205,7 @@ Añadimos el nombre, el id, el estado de la pizza (servida o no servida), el pre
 
 Para mostrar los ingredientes, recordamos que están dentro de un ArrayList y por eso, es necesario recorrerlo para posteriormente obtener el nombre y el precio de cada uno de ellos.
 
- 
+```
 public void verDatos(){
  
    calcularPrecio();
@@ -228,9 +223,11 @@ public void verDatos(){
        System.out.println("\t"+ item.getNombre() + " - " + item.getPrecio());
  
    } 
+```
  
 Formulamos los setters y los getters para poder modificar o recoger la información sobre las propiedades: nombre, id, precio, estado y listaIngredientes.
 
+```
 public String getNombre() {
    return nombre;
 }
@@ -270,7 +267,7 @@ public void setId(int id) {
 public void setEstado(boolean estado) {
    this.estado = estado;
 }
-
+```
 
 Con esto, ya habríamos terminado de programar la clase ‘Pizza’, continuamos con la clase Pizzería.
 
@@ -282,23 +279,28 @@ Una caja que almacenará el dinero de las pizzas servidas.
 
 Proseguimos con el constructor vacío, ya que no queremos que nos pasen ningún parámetro si no, solo crear una Pizzería que contenga una listaPizzas (lista que almacenará los pedidos).
 
+```
 public Pizzeria(){
    listaPizzas = new ArrayList<>();
 }
-
+```
+ 
 Ahora sí, vamos con los métodos que simulan el funcionamiento de un negocio real.
 
 Primero: el método agregarPedido necesita que se le pase una variable de tipo Pizza(clase Pizza). Dentro del método reemplazamos el id con el setter para cambiarlo a contador. Este contador se incrementará a medida que se vayan añadiendo pizzas (pedido 0, pedido 1, pedido 2, etc…). Por último, solo nos queda añadir la pizza a la listaPizzas.
 
+```
 public void agregarPedido(Pizza pizza){
    pizza.setId(contador);
    this.listaPizzas.add(pizza);
    contador++;
 }
-
+```
+ 
 Ahora, en el método servirPizza, necesitamos pasar por parámetros el id (id de la Pizza) que queramos servir. Recorreremos la lista de todas las pizzas (listaPizzas) y dentro, definiremos la condición de que si los id coinciden (el deseado y el asociado a una pizza), el estado de la pizza pasará a ser true (pizza servida). 
 Calcularemos el precio total de la pizza y añadiremos el nuevo precio a la caja (se ha servido la pizza, el cliente ha pagado y guardamos el dinero en la caja).
 
+```
 public void servirPizza(int id){
    for (Pizza pizza : listaPizzas) {
        if(pizza.getId() == id){
@@ -308,10 +310,12 @@ public void servirPizza(int id){
        }
    }
 }
-
+```
+ 
 Como en todo negocio, también es importante saber cuántos pedidos están pendientes y por eso, desarrollamos el método verPendientes.
 Comenzamos recorriendo la listaPizzas y dentro, verificamos el estado de cada una de ellas. Esto lo establecemos en la condición del ‘if’: “si el estado de la pizza no es true” entonces, mostrar los datos del pedido.
 
+```
 public void verPendientes(){
    for (Pizza pizza: listaPizzas) {
        if(!pizza.isEstado()){
@@ -321,9 +325,11 @@ public void verPendientes(){
        }
    }
 }
+``` 
 
 Por último, establecemos los getters y los setters de la clase pizzería
 
+``` 
 public void setListaPizzas(ArrayList<Pizza> listaPizzas) {
    this.listaPizzas = listaPizzas;
 }
@@ -339,55 +345,72 @@ public ArrayList<Pizza> getListaPizzas() {
 public double getCaja() {
    return caja;
 }
-
+```
+ 
 4.-Ahora solo nos queda, simular un negocio de pizzas.
 
 Comenzamos creando el establecimiento, en este caso, PizzaHut.
 
+``` 
 Pizzeria pizzaHut = new Pizzeria();
+```
 
 Proseguimos con crear la lista de  ingredientes que nuestro negocio ofrece: 
 
+```
 ArrayList<Ingrediente> listaIngredientesMargarita = new ArrayList<>();
-
+```
+ 
 Ahora que tenemos una lista, añadimos el nombre y el precio de cada ingrediente que deseemos de la siguiente manera:
 
+``` 
 listaIngredientesMargarita.add(new Ingrediente("Jamón", 1));
 listaIngredientesMargarita.add(new Ingrediente("Queso", 1.20));
 listaIngredientesMargarita.add(new Ingrediente("Champiñón", 2.20));
-
+```
+ 
 Ahora que ya tenemos unos ingredientes, podemos hacer pizzas y que los clientes hagan sus pedidos.  En este caso, tendremos 5 clientes: Roberto, Juan, Felipe, Ángela y Sofía.
 
+``` 
 Pizza pizzaMargarita1 = new Pizza("Roberto", listaIngredientesMargarita);
 Pizza pizzaMargarita2 = new Pizza("Juan", listaIngredientesMargarita);
 Pizza pizzaMargarita3 = new Pizza("Felipe", listaIngredientesMargarita);
 Pizza pizzaMargarita4 = new Pizza("Ángela", listaIngredientesMargarita);
 Pizza pizzaMargarita5 = new Pizza("Sofía", listaIngredientesMargarita);
-
+```
+ 
 Cuando cada cliente ha dado su nombre y los ingredientes que desee que lleve la pizza, agregamos el pedido a listaPizzas:
 
+```
 pizzaHut.agregarPedido(pizzaMargarita1);
 pizzaHut.agregarPedido(pizzaMargarita2);
 pizzaHut.agregarPedido(pizzaMargarita3);
 pizzaHut.agregarPedido(pizzaMargarita4);
 pizzaHut.agregarPedido(pizzaMargarita5);
+```
+ 
+En este caso, vamos a servir las pizzas de Roberto, Juan y Felipe (id0, id1 e id2):
 
- En este caso, vamos a servir las pizzas de Roberto, Juan y Felipe (id0, id1 e id2):
-
+``` 
 pizzaHut.servirPizza(0);
 pizzaHut.servirPizza(1);
 pizzaHut.servirPizza(2);
 System.out.println("Se han servido correctamente los pedidos de Roberto, Juan y Felipe");
-
+```
+ 
 Al principio, hemos visto que teníamos 5 clientes. Ya hemos servido 3 por lo que nos quedarían 2 pedidos pendientes (los de Ángela y Sofía). Esto lo sabemos gracias a la lógica humana, pero el programa también puede hacerlo y además, nos mostrará toda la información de los pedidos pendientes (nombre, id, precio, estado y lista con los ingredientes que lleva la pizza).
 
+``` 
 System.out.println("Estos son los pedidos pendientes: ");
 pizzaHut.verPendientes();
-
+```
+ 
 Supongamos que ya ha terminado la jornada laboral y solo hemos podido servir  3 pedidos. Tendremos que hacer el recuento de la caja y por ello haremos lo siguiente:
 
+``` 
 System.out.println("El valor de la caja es: "+ pizzaHut.getCaja() + " €");
-
+```
+ 
 Con esto finaliza el ejercicio que simula el funcionamiento de una Pizzería.
 
 Ahora faltaría hacerlo con un menú interactivo, pero eso ya es otro rollo…
