@@ -102,7 +102,7 @@ o Ver estado de las pizzas pendientes
 o Ver caja
 
 
-#Explicación ejercicio Pizzería:
+# Explicación ejercicio Pizzería:
 
 Antes de comenzar a escribir el código, es recomendable leer un par de veces el enunciado para entender lo que se nos pide hacer y a continuación, realizar un diagrama de flujo para esquematizar la funcionalidad del programa.
 
@@ -120,7 +120,9 @@ Proseguiremos, creando constructores que harán que en la clase ‘Entrada’ se
 
 Por defecto creamos uno vacío y otro en el que se pide un nombre y un precio para poder crear un ingrediente,
 
+ 
 public Ingrediente(){}
+ 
 
 public Ingrediente(String nombre, double precio){
    this.nombre = nombre;
@@ -155,27 +157,35 @@ El precio es la suma total del precio de todos los ingredientes que son almacena
 La listaIngredientes es el lugar donde se almacenarán todos los ingredientes que creemos en la clase ‘Entrada’ y que, por consiguiente, serán los ingredientes que lleve la pizza.
 El id será el número identificador del pedido.
 El estado será para ver si el pedido se ha servido o no (FALSE= no servido, TRUE=servido).
+ 
 
 private String nombre;
+ 
 private double precio;
+ 
 private ArrayList<Ingrediente> listaIngredientes;
+ 
 private int id;
+ 
 private boolean estado;
 
 Creamos los constructores, uno vacío por defecto, otro en el que sea necesario indicar el nombre de la persona a la que se le va a adjuntar el pedido y otro en el que se requiera el nombre de la persona responsable del pedido y una lista con los ingredientes que llevará la pizza.
 
 public Pizza(){}
 
+ 
 public Pizza(String nombre){
    this.nombre = nombre;
    listaIngredientes = new ArrayList<>();
 }
 
+ 
 public Pizza(String nombre, ArrayList listaIngredientes){
    this.nombre = nombre;
    this.listaIngredientes = listaIngredientes;
 }
- Ahora viene lo complicado y es empezar a formular los métodos, pero tranquil@, voy a explicarlo de manera sencilla y comprensible.
+ 
+Ahora viene lo complicado y es empezar a formular los métodos, pero tranquil@, voy a explicarlo de manera sencilla y comprensible.
 
 Según el enunciado del ejercicio, hay que crear un método para calcular el precio de la Pizza.
 
@@ -183,12 +193,16 @@ Para ello, debemos recorrer la lista de ingredientes (ArrayList<Ingrediente>() l
 
 Recuerda que dentro de la listaIngredientes hay datos almacenados de tipo String e int en un array y para recorrerlo es necesario hacerlo con for each. Una vez dentro del ArrayList, el programa irá  recogiendo el precio de cada ingrediente.
 
+ 
 public void calcularPrecio(){
+ 
    for (Ingrediente item : listaIngredientes) {
        precio = precio + item.getPrecio();
    }
+ 
 }
 
+ 
 Proseguimos con el método de verDatos, mediante el cual mostrará por consola las propiedades asociadas a la Pizza.
 
 Comenzamos, llamando al método de calcularPrecio para que realice la suma de los precios de los ingredientes correspondientes.
@@ -197,15 +211,25 @@ Añadimos el nombre, el id, el estado de la pizza (servida o no servida), el pre
 
 Para mostrar los ingredientes, recordamos que están dentro de un ArrayList y por eso, es necesario recorrerlo para posteriormente obtener el nombre y el precio de cada uno de ellos.
 
+ 
 public void verDatos(){
+ 
    calcularPrecio();
+ 
    System.out.println("Nombre: "+ nombre);
+ 
    System.out.println("Id: "+ id);
+ 
    System.out.println("Estado: "+ estado);
+ 
    System.out.println("Precio: "+ precio);
+ 
    for (Ingrediente item : listaIngredientes) {
+ 
        System.out.println("\t"+ item.getNombre() + " - " + item.getPrecio());
+ 
    } 
+ 
 Formulamos los setters y los getters para poder modificar o recoger la información sobre las propiedades: nombre, id, precio, estado y listaIngredientes.
 
 public String getNombre() {
