@@ -4,11 +4,11 @@
  
  Contenido:
  
- -En la carpeta MetodosBases se muestra el funcionamiento de los ArrayList y todas las funciones que derivan de él.
+ - En la carpeta MetodosBases se muestra el funcionamiento de los ArrayList y todas las funciones que derivan de él.
  
- -En la carpeta Pizzeria se muestra el código completo de cada clase del ejercicio Pizzería.
+ - En la carpeta Pizzeria se muestra el código completo de cada clase del ejercicio Pizzería.
  
- -En el archivo READFILE de abajo, se encuentra toda la teoría relacionada al ArrayList, el enunciado y la explicación del ejercicio Pizzería.
+ - En el archivo READFILE de abajo, se encuentra toda la teoría relacionada al ArrayList, el enunciado y la explicación del ejercicio Pizzería.
  
 
  # Definición, uso y creación de un ArrayList
