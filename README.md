@@ -64,6 +64,7 @@ o Métodos: Constructor/es, Getter / Setter
 
  
 - Pizza:
+ 
 o Propiedades: nombre (String), precio(double), ArrayList<Ingrediente>;,
 id (int), estado(boolean)
 
